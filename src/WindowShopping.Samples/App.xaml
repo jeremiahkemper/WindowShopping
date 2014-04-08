@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="WindowShopping.Samples.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:live="using:WindowShopping.UI.Live"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Application.Resources>
+        <live:LiveAppInfo x:Key="LiveAppInfo"/>
+    </Application.Resources>
+
+</Application>

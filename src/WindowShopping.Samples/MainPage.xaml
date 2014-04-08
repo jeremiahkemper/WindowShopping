@@ -1,0 +1,280 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowShopping.Samples"
+    xmlns:live="using:WindowShopping.UI.Live"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Behaviors="using:WindowShopping.UI.Behaviors"
+    xmlns:Converters="using:WindowShopping.UI.Converters"
+    x:Class="WindowShopping.Samples.MainPage"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    mc:Ignorable="d">
+    <Grid x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AppPurchase">
+                <VisualState x:Name="Purchased">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="trial">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="expired">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Trial">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="purchased">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="expired">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Expired">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="purchased">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="trial">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="Feature1Purchase">
+                <VisualState x:Name="Feature1Purchased">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="product1">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Purchased"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background)" Storyboard.TargetName="border">
+                        	<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ListBoxItemSelectedBackgroundThemeBrush}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Feature1NotPurchased">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="product1">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Not Purchased"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="Feature2Purchase">
+                <VisualState x:Name="Feature2Purchased">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="product2">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Purchased"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background)" Storyboard.TargetName="border1">
+                        	<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ListViewItemSelectedBackgroundThemeBrush}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Feature2NotPurchased">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="product2">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Not Purchased"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Interactivity:Interaction.Behaviors>
+            <Behaviors:TrialModeBehavior>
+                <Behaviors:TrialModeBehavior.TrialApplicationActions>
+                    <Core:GoToStateAction StateName="Trial"/>
+                </Behaviors:TrialModeBehavior.TrialApplicationActions>
+                <Behaviors:TrialModeBehavior.FullApplicationActions>
+                    <Core:GoToStateAction StateName="Purchased"/>
+                </Behaviors:TrialModeBehavior.FullApplicationActions>
+                <Behaviors:TrialModeBehavior.ExpiredApplicationActions>
+                    <Core:GoToStateAction StateName="Expired"/>
+                </Behaviors:TrialModeBehavior.ExpiredApplicationActions>
+            </Behaviors:TrialModeBehavior>
+            <Behaviors:ProductStatusBehavior ProductId="product1">
+                <Behaviors:ProductStatusBehavior.PurchasedActions>
+                    <Core:GoToStateAction StateName="Feature1Purchased"/>
+                </Behaviors:ProductStatusBehavior.PurchasedActions>
+                <Behaviors:ProductStatusBehavior.NotPurchasedActions>
+                    <Core:GoToStateAction StateName="Feature1NotPurchased"/>
+                </Behaviors:ProductStatusBehavior.NotPurchasedActions>
+            </Behaviors:ProductStatusBehavior>
+            <Behaviors:ProductStatusBehavior ProductId="product2">
+                <Behaviors:ProductStatusBehavior.PurchasedActions>
+                    <Core:GoToStateAction StateName="Feature2Purchased"/>
+                </Behaviors:ProductStatusBehavior.PurchasedActions>
+                <Behaviors:ProductStatusBehavior.NotPurchasedActions>
+                    <Core:GoToStateAction StateName="Feature2NotPurchased"/>
+                </Behaviors:ProductStatusBehavior.NotPurchasedActions>
+            </Behaviors:ProductStatusBehavior>
+        </Interactivity:Interaction.Behaviors>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Hub>
+            <Hub.Header>
+                <Grid>
+                    <TextBlock TextWrapping="Wrap" Text="WindowShopping.Samples" Style="{StaticResource HeaderTextBlockStyle}"/>
+                </Grid>
+            </Hub.Header>
+            <HubSection Background="#FF666666" VerticalContentAlignment="Stretch">
+                <DataTemplate>
+                    <StackPanel>
+                        <Button Content="Purchase Full Version" HorizontalAlignment="Stretch">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Click">
+                                    <Behaviors:PurchaseFullAppAction/>
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+                        </Button>
+                        <Button Content="Rate My Application" HorizontalAlignment="Stretch" Margin="0,15">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Click">
+                                    <Behaviors:RateApplicationAction/>
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+            <HubSection>
+                <DataTemplate>
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock Text="Products Available" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                            <TextBlock Text="purchasing requires full version" Style="{ThemeResource CaptionTextBlockStyle}" FontStyle="Italic" Margin="15,-5,0,0"/>
+                        </StackPanel>
+                        <ListView ItemsSource="{Binding}" SelectionMode="None" Margin="0,50,0,0">
+                            <ListView.DataContext>
+                                <live:LiveProductListing/>
+                            </ListView.DataContext>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="8">
+                                        <Border Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                                            <Image Source="{Binding ImageUri}" Stretch="UniformToFill"/>
+                                        </Border>
+                                        <StackPanel Margin="75,0,0,0">
+                                            <TextBlock Text="{Binding Name}" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,-9,0,0"/>
+                                            <TextBlock Text="{Binding ProductType}" Style="{ThemeResource TitleTextBlockStyle}"/>
+                                            <TextBlock Text="{Binding FormattedPrice}" Style="{ThemeResource BodyTextBlockStyle}"/>
+                                            <Button Content="Purchase" Margin="-3,5,0,0" IsEnabled="{Binding IsFullVersion, Source={StaticResource LiveAppInfo}}">
+                                                <Interactivity:Interaction.Behaviors>
+                                                    <Core:EventTriggerBehavior EventName="Click">
+                                                        <Behaviors:PurchaseProductAction ProductId="{Binding ProductId}"/>
+                                                    </Core:EventTriggerBehavior>
+                                                </Interactivity:Interaction.Behaviors>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="Consumables Unfulfilled" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                        <ListView ItemsSource="{Binding}" SelectionMode="None" Margin="0,50,0,0">
+                            <ListView.DataContext>
+                                <live:LiveConsumablesListing/>
+                            </ListView.DataContext>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="8">
+                                        <Border Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                                            <Image Source="{Binding ImageUri}" Stretch="UniformToFill"/>
+                                        </Border>
+                                        <StackPanel Margin="75,0,0,0">
+                                            <TextBlock Text="{Binding ProductId}" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,-9,0,0"/>
+                                            <TextBlock Text="{Binding TransactionId}" Style="{ThemeResource TitleTextBlockStyle}"/>
+                                            <Button Content="Fulfill" Margin="-3,5,0,0">
+                                                <Interactivity:Interaction.Behaviors>
+                                                    <Core:EventTriggerBehavior EventName="Click">
+                                                        <Behaviors:ConsumableFulfillmentAction ProductId="{Binding ProductId}" TransactionId="{Binding TransactionId}"/>
+                                                    </Core:EventTriggerBehavior>
+                                                </Interactivity:Interaction.Behaviors>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection MaxWidth="600">
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="Log" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                        <ListView ItemsSource="{Binding Log}" SelectionMode="None" Margin="0,50,0,0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="WrapWholeWords" Text="{Binding}" Margin="0,0,0,10"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+        <Grid Grid.Row="1" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                <Border x:Name="purchased" Background="{ThemeResource ListBoxItemSelectedBackgroundThemeBrush}" Padding="20" Margin="0,0,1,0">
+                    <TextBlock Text="This App has been Purchased" Style="{ThemeResource TitleTextBlockStyle}" VerticalAlignment="Center" Margin="0,-8,0,0"/>
+                </Border>
+                <Border x:Name="trial" Background="{ThemeResource HyperlinkDisabledThemeBrush}" BorderBrush="{ThemeResource HyperlinkForegroundThemeBrush}" Padding="20" Margin="0,0,1,0">
+                    <TextBlock Text="This App is in Trial Mode" Style="{ThemeResource TitleTextBlockStyle}" VerticalAlignment="Center" Margin="0,-8,0,0"/>
+                </Border>
+                <Border x:Name="expired" Background="{ThemeResource ListBoxBorderThemeBrush}" Padding="20" Margin="0,0,1,0">
+                    <TextBlock Text="This App is Expired" Style="{ThemeResource TitleTextBlockStyle}" VerticalAlignment="Center" Margin="0,-8,0,0" Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}"/>
+                </Border>
+                <Border x:Name="border" Background="{ThemeResource HyperlinkDisabledThemeBrush}" Padding="20" Margin="1,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="'product1' Status:" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,-8,0,0"/>
+                        <TextBlock x:Name="product1" Text="Status" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,-8,0,0"/>
+                    </StackPanel>
+                </Border>
+                <Border x:Name="border1" Background="{ThemeResource HyperlinkDisabledThemeBrush}" Padding="20" Margin="1,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="'product2' Status:" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,-8,0,0"/>
+                        <TextBlock x:Name="product2" Text="Status" Style="{ThemeResource TitleTextBlockStyle}" Margin="10,-8,0,0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
