@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.20930.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowShopping", "WindowShopping\WindowShopping.csproj", "{A989248E-1CC5-4BDB-866B-897B599B14AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowShopping.Samples", "WindowShopping.Samples\WindowShopping.Samples.csproj", "{CFCF96DA-2F4B-4E00-BE1E-C2B71093313D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowShopping.UI", "WindowShopping.UI\WindowShopping.UI.csproj", "{EE55D0D4-2C86-40AA-B801-39460F816C00}"
 EndProject
 Global
