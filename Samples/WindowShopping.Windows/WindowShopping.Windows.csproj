@@ -7,8 +7,8 @@
     <ProjectGuid>{CFCF96DA-2F4B-4E00-BE1E-C2B71093313D}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowShopping.Samples</RootNamespace>
-    <AssemblyName>WindowShopping.Samples</AssemblyName>
+    <RootNamespace>WindowShopping.Windows</RootNamespace>
+    <AssemblyName>WindowShopping.Windows</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
