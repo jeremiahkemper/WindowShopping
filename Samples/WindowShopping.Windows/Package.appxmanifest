@@ -6,8 +6,8 @@
             Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>WindowShopping.Samples</DisplayName>
-    <PublisherDisplayName>jkemper</PublisherDisplayName>
+    <DisplayName>WindowShopping.Windows</DisplayName>
+    <PublisherDisplayName>Jeremiah Kemper</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -23,12 +23,12 @@
   <Applications>
     <Application Id="App"
         Executable="$targetnametoken$.exe"
-        EntryPoint="WindowShopping.Samples.App">
+        EntryPoint="WindowShopping.Windows.App">
         <m2:VisualElements
-            DisplayName="WindowShopping.Samples"
+            DisplayName="WindowShopping.Windows"
             Square150x150Logo="Assets\Logo.png"
             Square30x30Logo="Assets\SmallLogo.png"
-            Description="WindowShopping.Samples"
+            Description="WindowShopping.Windows"
             ForegroundText="light"
             BackgroundColor="#464646">
             <m2:SplashScreen Image="Assets\SplashScreen.png" />

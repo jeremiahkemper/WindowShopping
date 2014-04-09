@@ -1,10 +1,11 @@
-﻿namespace WindowShopping.Samples
-{
-	using System;
-	using System.Collections.ObjectModel;
-	using Windows.UI.Xaml.Controls;
-	using WindowShopping.Core;
+﻿using System;
+using System.Collections.ObjectModel;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using WindowShopping.Core;
 
+namespace WindowShopping.Windows
+{
 	public sealed partial class MainPage : Page
 	{
 		public ObservableCollection<string> Log { get; private set; }
@@ -16,7 +17,7 @@
 			this.InitializeComponent();
 		}
 
-		protected override void OnNavigatedTo(Windows.UI.Xaml.Navigation.NavigationEventArgs e)
+		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 			StoreContainer.StoreRepository.AppReceiptReceived += this.StoreRepository_AppReceiptReceived;
 			StoreContainer.StoreRepository.ExceptionReceived += this.StoreRepository_ExceptionReceived;
@@ -27,7 +28,7 @@
 			base.OnNavigatedTo(e);
 		}
 
-		protected override void OnNavigatedFrom(Windows.UI.Xaml.Navigation.NavigationEventArgs e)
+		protected override void OnNavigatedFrom(NavigationEventArgs e)
 		{
 			StoreContainer.StoreRepository.AppReceiptReceived -= this.StoreRepository_AppReceiptReceived;
 			StoreContainer.StoreRepository.ExceptionReceived -= this.StoreRepository_ExceptionReceived;

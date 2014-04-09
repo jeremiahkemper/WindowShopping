@@ -14,7 +14,6 @@
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>WindowShopping.Samples_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -102,17 +101,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\WindowShopping.UI\WindowShopping.UI.csproj">
-      <Project>{ee55d0d4-2c86-40aa-b801-39460f816c00}</Project>
-      <Name>WindowShopping.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WindowShopping\WindowShopping.csproj">
-      <Project>{a989248e-1cc5-4bdb-866b-897b599b14af}</Project>
-      <Name>WindowShopping</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -132,7 +120,9 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Data\simulated-products.xml" />
+    <Content Include="Data\simulated-products.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -148,6 +138,16 @@
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\WindowShopping.UI\WindowShopping.UI.csproj">
+      <Project>{ee55d0d4-2c86-40aa-b801-39460f816c00}</Project>
+      <Name>WindowShopping.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\WindowShopping\WindowShopping.csproj">
+      <Project>{a989248e-1cc5-4bdb-866b-897b599b14af}</Project>
+      <Name>WindowShopping</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
