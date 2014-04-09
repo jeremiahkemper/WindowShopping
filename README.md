@@ -28,6 +28,6 @@ Talking to the store is basically boiler plate code for most applications.  Crea
 * `LiveProductListing` - a bindable list which keeps track of the products available to purchase
 
 ## Samples
-Included in this repo is `WindowShopping.Samples.sln` which contains a Windows application using these behaviors with little code behind.
+Included in this repo is `WindowShopping.Samples.sln` which contains a Windows application using all of the behaviors and live classes. It also listens to the broadcasting log from the active abstraction layer.  
 
-The sample shows how to use all of the behaviors and actions, and listen to the broadcasting log from the active abstraction layer.  The sample also shows how to override the default `CurrentApp` object with the `CurrentAppSimulator` inside `CurrentAppSimulatorRepository`
+The sample overrides the default `CurrentApp` object with the `CurrentAppSimulator` during debugging by using the `CurrentAppSimulatorRepository`.
