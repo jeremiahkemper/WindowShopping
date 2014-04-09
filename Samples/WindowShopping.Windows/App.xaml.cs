@@ -1,9 +1,10 @@
-﻿namespace WindowShopping.Samples
-{
-	using Windows.ApplicationModel.Activation;
-	using Windows.UI.Xaml;
-	using Windows.UI.Xaml.Controls;
+﻿using Windows.ApplicationModel.Activation;
+using Windows.Globalization;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
+namespace WindowShopping.Windows
+{
 	sealed partial class App : Application
 	{
 		public App()
@@ -26,7 +27,7 @@
 			if (rootFrame == null)
 			{
 				rootFrame = new Frame();
-				rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
+				rootFrame.Language = ApplicationLanguages.Languages[0];
 				Window.Current.Content = rootFrame;
 			}
 

@@ -1,18 +1,18 @@
-﻿namespace WindowShopping.Samples
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Store;
+using Windows.Storage;
+using WindowShopping.Core;
+
+namespace WindowShopping.Windows
 {
 #if DEBUG
 	// http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentappsimulator.aspx
 	// The Current App Simulator must not be in the final application submitted to the store for Approval.
 	// Wrapping this in a #if DEBUG allows the developer to play with it during Debug, then during Release, use the real
 	// one provided by the Store API.
-
-	using System;
-	using System.Collections.Generic;
-	using System.Threading.Tasks;
-	using Windows.ApplicationModel;
-	using Windows.ApplicationModel.Store;
-	using Windows.Storage;
-	using WindowShopping.Core;
 
 	public class CurrentAppSimulatorRepository : BaseStoreRepository
 	{

@@ -1,5 +1,5 @@
 ﻿<Application
-    x:Class="WindowShopping.Samples.App"
+    x:Class="WindowShopping.Windows.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:live="using:WindowShopping.UI.Live"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
