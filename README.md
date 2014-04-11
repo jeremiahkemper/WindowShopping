@@ -1,7 +1,7 @@
 WindowShopping
 ==============
 
-Crazy fun tools and behaviors for building In-App Purchase, Trial Mode, and Rate My Application scenarios into Windows Store applications.  This library contains an abstraction layer for the communication to the Store APIs, and several XAML Behaviors. Written in C# for WinRT.
+Crazy fun tools and behaviors for building In-App Purchase, Trial Mode, and Rate My Application scenarios into XAML Windows Store applications.  This library contains an abstraction layer for the communication to the Store APIs, and several XAML Behaviors. Written in C# for WinRT.
 
 ## Why use it?
 Talking to the store is basically boiler plate code for most applications.  Creating an abstract layer to determine whether or not to use the `CurrentAppSimulator`, or the `CurrentApp` objects is time consuming.  This library takes the guess work out of the abstractions, and allows the user to do standard tasks without any code using behaviors and live, bindable lists.
